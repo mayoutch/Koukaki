@@ -7,13 +7,14 @@
  Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
  Version: 0.1
  */
- // Section des Oscars ajoutée
+ // ----------------- Section des Oscars ajoutée  ----------------------------
  .section-oscars{
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
     margin-top: 60px;
+    
     &::before{
         content: url("./assets/images/Sunflower.png");
         position: absolute;
@@ -34,8 +35,7 @@
         position: absolute;
         right:-30px;
         top:-90px;
-    
-      
+
     }
  
  }
@@ -57,7 +57,7 @@
 	bottom: 7.8em;
 }
 
-//Rotation des Fleurs à l'infini en CSS avec des @KeyFrames 
+// ----------------                  Rotation des Fleurs à l'infini en CSS avec des @KeyFrames            -----------------------
 .story h2::after, .story__article::after, #studio h2::after, #studio h2::before, .section-oscars::after, .section-oscars::before, .site-footer ul::after{
     animation: flowerRotation 12s linear infinite;
     }
@@ -70,14 +70,14 @@
     }
     }
 
-// Effet de Fade-In sur les 4 sections:
-#background{ // pour la première section : j'ai ajouté un Id="background" pour dissocier les animations et que ça ne s'applique au logo
+// Effet de Fade-In au scroll * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline/view
+#background{ // pour la première section : j'ai ajouté un Id="background" pour dissocier les animations et que ça ne s'applique pas au logo
     animation: animate 1s;
 }
 @keyframes animate{
     from {
-    opacity: 0;
-    transform: translate3d(0, -20%, 0);
+    opacity: 0.5;
+    transform: translate3d(0, -30%, 0);
     }
     to {
     opacity: 1;
@@ -85,11 +85,11 @@
     }
     }
 
-    //avec apparition au scroll pour les 3 autres sections (mais ne fonctionne pas)
-#story, #studio, .section-oscars{
-    animation: animate 1s;
-    animation-timeline: view();
-    }
+    //avec apparition progressive au scroll pour les 5 autres sections 
+    .section-oscars, #studio, #place, #characters, #story{
+      animation: animate 1s;
+      animation-timeline: view();
+      }
   
 // Effet d'apparition des titres au scroll :
 h2, h3 {
@@ -99,7 +99,7 @@ h2, h3 {
   
   @keyframes title-progression {
     from {
-      padding-top: 160px;
+      padding-top: 200px;
       opacity:0;
     }
     to {
@@ -108,30 +108,47 @@ h2, h3 {
     }
   }
 
-  // ------------ Héro ------------- //
-   // Image en fallback pendant chargement de la vidéo (img qui était déjà intégrée via un lien src dans le Css du thème parent) :
+  // --------------------------------------------------        Héro        ---------------------------------------------------- //
+  #background{ // 1 - le contener principal
+    height: 806px;
+  } 
+  
+  // 2 - Image en fallback pendant chargement de la vidéo (img qui était déjà intégrée via un lien src dans le Css du thème parent) :
    .banner{
     z-index: 0;
-    animation: animate 1s; // j'ajoute ici le @keyframes animate (fade-in), comme pour la vidéo
+   height: 806px !important;
+   width: 1440px;
   }
+
   
-  // Vidéo du héro :
+  // 3 - Vidéo  :
   #background_video{
     z-index: 1; 
     position:relative;
+    animation: animate 1s;
   }
   @media (max-width: 1024px) { // si écran inférieur ou égal à 1024px, la vidéo laisse place à l'img en fallback
     #background_video { display: none; }
   }
 
-  //logo (l'img était déjà insérée dans le Front-page.php / ajout d'un id pour le fade-in, flottement & parallaxe) :
+  //logo (l'img était déjà insérée dans le Front-page.php / ajout d'un id pour flottement & parallaxe) :
   #logo{
   z-index: 2 ;
   position:absolute;
   display: flex;
   justify-content: center;
   width:100%;
-  animation: flottement 5s cubic-bezier(0.43, 0.08, 0.61, 0.99) infinite;
+  animation: logo-progression 1s, flottement 6s 2s infinite ease-in-out;
+}
+@keyframes logo-progression {
+  from {
+    padding-top: 1000px;
+    opacity:0;
+  }
+  to {
+    padding-top: 0px;
+    opacity:1;
+  }
 }
 @keyframes flottement{
     0% {
@@ -151,3 +168,62 @@ h2, h3 {
     }
 }
 
+// -------------------               Section "Personnages"             ----------------------------//
+
+.story #characters{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;
+}
+ 
+
+// Caroussel -- Swipper
+.swiper {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 100px;
+  
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  padding-bottom: 30px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+.swiper-slide p{
+  font-size: 18px;
+} 
+.swiper-pagination {
+  padding: 20px;
+}
+
+// -----------------------------      Section "lieu"         ------------------------------//
+// Modification de l'image
+.story #place {
+  background-image: url(./assets/images/place_nouvelle_img.png); 
+  width:100%;
+  &::before{ //avec ajout des nuages
+    content: url("./assets/images/big_cloud.png");
+    position: absolute;
+    height: 122px;
+    top: 70px;
+    right: 90px;
+    filter: blur(12px); // ajout du flou
+  }
+    &::after{
+    content: url("./assets/images/little_cloud.png");
+    position: absolute;
+    height: 55px;
+    top: 250px;
+    right: 500px;
+    filter: blur(12px);
+    }
+  }

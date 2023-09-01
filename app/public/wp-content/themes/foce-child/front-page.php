@@ -1,3 +1,4 @@
+
 <?php
 
 get_header();
@@ -10,9 +11,19 @@ get_header();
             <!-- Ajout de la vidéo -->
             <video id="background_video" autoplay loop muted><source src="<?php echo get_stylesheet_directory_uri() . '/css/assets/images/Studio_Koukaki_video.mp4'; ?> " type="video/mp4"></video> 
             </div>
-            <!--Et ajout d'un Id au Logo pour le styliser : -->
-            <div id="logo"> 
+            <!--Et ajout d'un Id au Logo pour le styliser et faire le parallax avec SkrollR : -->
+            <div id="logo" data-0="width:1500px" data-200="width:1200px"> 
             <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+                <!-- Ajout de SkrollR -->
+                <!-- https://www.novaway.fr/blog/ui-ux-design/effet-parallax-guide-bonne-utilisation
+                https://www.youtube.com/watch?v=qPI8WpJRjM0
+                https://github.com/Prinzhorn/skrollr
+                https://cdnjs.com/libraries/skrollr -->
+                <script src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js'></script>
+                <script>
+                var s = skrollr.init();
+                </script>
+                <!-- fin de l'ajout de SkrollR -->
             </div>
         </section>
         <section id="#story" class="story">
@@ -30,32 +41,12 @@ get_header();
             );
             $characters_query = new WP_Query($args);
             ?>
-            <article id="characters">
-                <div class="main-character">
-                    <h3>Les personnages</h3>
-                    <?php
-                    $main_character = $characters_query->posts[0];
-                    echo '<figure>';
-                    echo get_the_post_thumbnail( $main_character->ID, 'full' );
-                    echo '<figcaption>'. $main_character->post_title . '</figcaption>';
-                    echo '</figure>';
-                    $characters_query->next_post();
-                    ?>
-                </div>
-                <div class="other-characters">
-                    <?php
-                    while ( $characters_query->have_posts() ) {
-                        $characters_query->the_post();
-                        echo '<figure>';
-                        echo get_the_post_thumbnail( get_the_ID(), 'full' );
-                        echo '<figcaption>';
-                        the_title();
-                        echo'</figcaption>';
-                        echo '</figure>';
-                    }
-                    ?>
-                </div>
-            </article>
+             <!-- Ajout du caroussel des personnages" par un get_template_part : -->
+             <?php
+            get_template_part('/template-parts/section-personnages')
+            ?>
+
+   
             <article id="place">
                 <div>
                     <h3>Le Lieu</h3>
@@ -81,6 +72,8 @@ get_header();
            
            
     </main><!-- #main -->
+    
  
 <?php
 get_footer();
+

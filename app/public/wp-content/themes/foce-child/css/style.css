@@ -70,15 +70,15 @@
 
 @keyframes animate {
   from {
-    opacity: 0;
-    transform: translate3d(0, -20%, 0);
+    opacity: 0.5;
+    transform: translate3d(0, -30%, 0);
   }
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
-#story, #studio, .section-oscars {
+.section-oscars, #studio, #place, #characters, #story {
   animation: animate 1s;
   animation-timeline: view();
 }
@@ -90,7 +90,7 @@ h2, h3 {
 
 @keyframes title-progression {
   from {
-    padding-top: 160px;
+    padding-top: 200px;
     opacity: 0;
   }
   to {
@@ -98,14 +98,20 @@ h2, h3 {
     opacity: 1;
   }
 }
+#background {
+  height: 806px;
+}
+
 .banner {
   z-index: 0;
-  animation: animate 1s;
+  height: 806px !important;
+  width: 1440px;
 }
 
 #background_video {
   z-index: 1;
   position: relative;
+  animation: animate 1s;
 }
 
 @media (max-width: 1024px) {
@@ -119,9 +125,19 @@ h2, h3 {
   display: flex;
   justify-content: center;
   width: 100%;
-  animation: flottement 5s cubic-bezier(0.43, 0.08, 0.61, 0.99) infinite;
+  animation: logo-progression 1s, flottement 6s 2s infinite ease-in-out;
 }
 
+@keyframes logo-progression {
+  from {
+    padding-top: 1000px;
+    opacity: 0;
+  }
+  to {
+    padding-top: 0px;
+    opacity: 1;
+  }
+}
 @keyframes flottement {
   0% {
     transform: translate(0px, -10px);
@@ -138,4 +154,58 @@ h2, h3 {
   100% {
     transform: translate(0px, -10px);
   }
+}
+.story #characters {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 100px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  padding-bottom: 30px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+.swiper-slide p {
+  font-size: 18px;
+}
+
+.swiper-pagination {
+  padding: 20px;
+}
+
+.story #place {
+  background-image: url(./assets/images/place_nouvelle_img.png);
+  width: 100%;
+}
+.story #place::before {
+  content: url("./assets/images/big_cloud.png");
+  position: absolute;
+  height: 122px;
+  top: 70px;
+  right: 90px;
+  filter: blur(12px);
+}
+.story #place::after {
+  content: url("./assets/images/little_cloud.png");
+  position: absolute;
+  height: 55px;
+  top: 250px;
+  right: 500px;
+  filter: blur(12px);
 }/*# sourceMappingURL=style.css.map */
