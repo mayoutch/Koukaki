@@ -6,7 +6,9 @@ var swiper = new Swiper(".mySwiper", {
   effect: "coverflow",
   grabCursor: true,
   centeredSlides: true,
+  loop: true,
   slidesPerView: "auto",
+
   coverflowEffect: {
     rotate: 50,
     stretch: 0,
@@ -17,4 +19,11 @@ var swiper = new Swiper(".mySwiper", {
   pagination: {
     el: ".swiper-pagination",
   },
+});
+
+// Menu burger : https://www.youtube.com/watch?v=ZGyLWixjE90
+const burger = document.querySelector(".burger");
+
+burger.addEventListener("click", () => {
+  burger.classList.toggle("active");
 });

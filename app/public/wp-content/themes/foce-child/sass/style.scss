@@ -7,7 +7,7 @@
  Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
  Version: 0.1
  */
- // ----------------- Section des Oscars ajoutée  ----------------------------
+ // ---------------------------------------- Ajout de la section des Oscars  ----------------------------
  .section-oscars{
     display: flex;
     position: relative;
@@ -182,8 +182,7 @@ h2, h3 {
 .swiper {
   width: 100%;
   padding-top: 10px;
-  padding-bottom: 100px;
-  
+  padding-bottom: 100px; 
 }
 
 .swiper-slide {
@@ -206,24 +205,84 @@ h2, h3 {
 }
 
 // -----------------------------      Section "lieu"         ------------------------------//
+/// essai : id place en position relative pour essayer de faire comme le lien suivant pour le Skroll de l'img
+/// https://www.novaway.fr/blog/ui-ux-design/effet-parallax-guide-bonne-utilisation
+#place{ 
+  position:relative;
+  width: 100%;
+}
+ 
+
 // Modification de l'image
 .story #place {
   background-image: url(./assets/images/place_nouvelle_img.png); 
   width:100%;
-  &::before{ //avec ajout des nuages
-    content: url("./assets/images/big_cloud.png");
+}
+
+
+  .gros-nuage{ 
     position: absolute;
     height: 122px;
     top: 70px;
     right: 90px;
     filter: blur(12px); // ajout du flou
   }
-    &::after{
-    content: url("./assets/images/little_cloud.png");
-    position: absolute;
+  .petit-nuage{
+   position: absolute;
     height: 55px;
     top: 250px;
-    right: 500px;
     filter: blur(12px);
     }
+  
+// -------------------------------- MENU --------------------------------------------------//
+//Création du menu Burger : https://www.youtube.com/watch?v=ZGyLWixjE90
+.burger{
+  width: 42px;
+  height: 24px;
+  cursor: pointer;
+  position: relative;
   }
+
+  .burger span{ // barre du milieu
+    width: 100%;
+    height: 4px;
+    background-color: #000000;
+    display: block; // important, car balise span est de type inline. sinon, rien n'apparaît
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    transition: backround-color 0.5s ease-in-out;
+}
+
+.burger span::before, .burger span::after { // barre du haut et barre du bas
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #000000
+}
+.burger span::before{
+  transform: translateY(-10px);
+}
+.burger span::after{
+transform: translateY(10px);
+} // fin de la créa des 3 barres - apparaît désormais comme un burger
+
+//début de l'animation du burger
+.burger.active span{ // quand la class burger comprend aussi la class active ...
+background-color: transparent; // la barre du milieu devient transparente ...
+}
+
+// puis le before et l'after font une rotation pour dessiner une croix :
+.burger.active span::after{
+  transform: translateY(0px) rotateZ(-45deg);
+}
+.burger.active span::before{
+  transform: translateY(0px) rotateZ(45deg);
+} // Fin du menu burger et de son animation.
+
+
+
+
+
+

@@ -12,13 +12,16 @@ get_header();
             <video id="background_video" autoplay loop muted><source src="<?php echo get_stylesheet_directory_uri() . '/css/assets/images/Studio_Koukaki_video.mp4'; ?> " type="video/mp4"></video> 
             </div>
             <!--Et ajout d'un Id au Logo pour le styliser et faire le parallax avec SkrollR : -->
-            <div id="logo" data-0="width:1500px" data-200="width:1200px"> 
+            <div id="logo" data-0 ="top:40%" data-450="top:70%"> 
+            
             <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
                 <!-- Ajout de SkrollR -->
-                <!-- https://www.novaway.fr/blog/ui-ux-design/effet-parallax-guide-bonne-utilisation
-                https://www.youtube.com/watch?v=qPI8WpJRjM0
-                https://github.com/Prinzhorn/skrollr
-                https://cdnjs.com/libraries/skrollr -->
+                <!-- https://www.novaway.fr/blog/ui-ux-design/effet-parallax-guide-bonne-utilisation : lien conseillé par OC
+                https://www.youtube.com/watch?v=qPI8WpJRjM0 : vidéo explicative en français 
+                https://github.com/Prinzhorn/skrollr : github avec documentation et exemples
+                https://cdnjs.com/libraries/skrollr : lien pour télécharger/installer SkrollR
+                http://web.simmons.edu/~grovesd/comm244/demo/skrollr/examples-gotchas#ex1a : exemples en anglais très parlants
+            -->
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js'></script>
                 <script>
                 var s = skrollr.init();
@@ -51,6 +54,25 @@ get_header();
                 <div>
                     <h3>Le Lieu</h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
+
+                    <!-- Ajout des nuages avec le SkrollR -->
+                    <div>
+                        <div class="gros-nuage" data-center-top ="left:900px" data-top="left:600px">
+                        <img src="wp-content/themes/foce-child/css/assets/images/big_cloud.png" alt="gros nuage">
+                        </div>
+                   
+                        <div class="petit-nuage" data-bottom-top ="left:800px" data-top-bottom="left:500px">
+                        <img src="wp-content/themes/foce-child/css/assets/images/little_cloud.png" alt="petit nuage">
+                        </div>
+
+                        <!-- Ajout de SkrollR -->
+                        <script src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js'></script>
+                        <script>
+                        var s = skrollr.init();
+                        </script>
+                        <!-- fin de l'ajout de SkrollR -->
+                    </div>
+
                 </div>
 
             </article>
