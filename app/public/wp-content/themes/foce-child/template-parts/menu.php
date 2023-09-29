@@ -1,12 +1,22 @@
-<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-<span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
-            <ul>
-                <li><a href="#story">Histoire</a></li>
-                <li><a href="#characters">Personnages</a></li>
-                <li class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
-                <li><a href="#place">Lieu</a></li>
-                <li><a href="#studio">Studio Koukaki</a></li>
-            </ul>
+<nav class="navnewmenu">
+    <div class="back">
+
+        <div class="logomenu"></div>
+        <div class="fleurblanchemenu"></div>
+        <div class="bluecat"></div>
+        <div class="orchid"></div>
+        <div class="randomflower"></div>
+        <div class="flower"></div>
+        <div class="blackcat"></div>
+        <div class="yellowcat"></div>
+        <div class="hibiscusmenu"></div>
+
+        <ul class="newul">
+            <li><a href="http://koukaki.local/#story" class="">Histoire</a></li>
+            <li><a href="http://koukaki.local/#characters" class="">Personnages</a></li>
+            <li><a href="http://koukaki.local/#place" class="">Lieu</a></li>
+            <li><a href="http://koukaki.local/#studio" class="">Studio Koukaki</a></li>
+</ul>
+        <p>Studio Koukaki</p>
+    </div>
+</nav>

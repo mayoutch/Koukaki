@@ -2,8 +2,8 @@
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
      // Ajout de Swiper (AVANT LES FEUILLES DE STYLE !)
-     wp_enqueue_style('swiper', 'https://unpkg.com/swiper/swiper-bundle.min.css', array(), '1.0');
-     wp_enqueue_script('swiper-js', 'https://unpkg.com/swiper/swiper-bundle.min.js', array(), '1.0', true);
+    wp_enqueue_style('swiper', 'https://unpkg.com/swiper/swiper-bundle.min.css', array(), '1.0');
+    wp_enqueue_script('swiper-js', 'https://unpkg.com/swiper/swiper-bundle.min.js', array(), '1.0', true);
      // Déja présent : le parent-style :
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
     // Ajout -- Chargement du Css du thème enfant

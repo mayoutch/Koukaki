@@ -32,7 +32,7 @@
         <div class="menu">
           <a class="site-title " href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
           <div class="burger">
-            <span></span> <!-- span vide pour le menu burger -->
+            <span></span> <!-- span vide pour créa en css du menu burger -->
           </div>
         </div>
 

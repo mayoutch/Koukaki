@@ -135,7 +135,7 @@ h2, h3 {
   #logo{
   z-index: 2 ;
   position:absolute;
-  display: flex;
+  display: flex !important;
   justify-content: center;
   width:100%;
   animation: logo-progression 1s, flottement 6s 2s infinite ease-in-out;
@@ -279,10 +279,167 @@ background-color: transparent; // la barre du milieu devient transparente ...
 }
 .burger.active span::before{
   transform: translateY(0px) rotateZ(45deg);
-} // Fin du menu burger et de son animation.
+} // Fin du menu burger et de son animation allant du burger à la croix.
+
+// Le Menu en full Screen :
+.menu {
+  padding-top: 20px;
+  margin-left: 420px;
+  display: flex;
+  justify-content: space-around;
+}
 
 
+.newul {
+  list-style: none; // pour enlever les puces
+  padding: 0;
+  padding-top: 30px;
+}
+
+.newul li {
+  text-align: center;
+}
+
+.newul li a {
+  text-decoration: none;
+  font-family: Roboto Mono;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 84px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: black;
+}
+
+.newul li a:hover { 
+  text-shadow: 0px 0px 14px #FF5C00;
+}
+
+.newul p {
+  text-align: center;
+  padding-top: 50px;
+}
+
+//Images du menu full screen
+.fleurblanchemenu {
+  content: url('./assets/images/menu/Sunflower.png');
+  position: absolute;
+  width: 216px;
+  height: 216px;
+  left: 829px;
+  top: 87px;
+  margin-left: 234px;
+  
+}
+
+.bluecat {
+  content: url('./assets/images/menu/bluecat.png');
+  position: absolute;
+  width: 109.22px;
+  height: 98.63px;
+  left: 181px;
+  top: 130px;
+  margin-left: 120px;
+}
+
+.orchid {
+  content: url('./assets/images/menu/orchid.png');
+  position: absolute;
+  width: 172.57px;
+  height: 168.24px;
+  left: -72px;
+  top: 50px;
+  
+}
+
+.randomflower {
+  content: url('./assets/images/menu/random_flower.png');
+  position: absolute;
+  width: 75.75px;
+  height: 74.53px;
+  left: 1393px;
+  top: 352px;
+  
+}
+
+.flower {
+  content: url('./assets/images/menu/flower.png');
+  box-sizing: border-box;
+  position: absolute;
+  width: 70.76px;
+  height: 70.76px;
+  left: 180px;
+  top: 300px;
+  
+}
+
+.blackcat {
+  content: url('./assets/images/menu/blackcat.png');
+  position: absolute;
+  width: 123.92px;
+  height: 111.91px;
+  left: 1080px;
+  top: 350px;
+}
+
+.yellowcat {
+  content: url('./assets/images/menu/yellowcat.png');
+  position: absolute;
+  width: 105.91px;
+  height: 95.65px;
+  left: 24px;
+  top: 450px;
+}
+
+.hibiscusmenu {
+  content: url('./assets/images/menu/hibiscus_footer.png');
+  position: absolute;
+  left: 1250px;
+  top: 480px;
+  width:400px;
+  height: 400px;
+}
+
+.logomenu {
+  content: url('./assets/images/menu/logomenu.png');
+  margin-left: 100px;
+  padding-top: 20px;
+  
+}
+
+.orchid , .fleurblanchemenu , .hibiscusmenu , .flower , .randomflower {
+  animation: flowerRotation 12s linear infinite;
+}
 
 
+.bluecat , .yellowcat , .blackcat , .logomenu{
+  animation: flottement 6s 2s ease-in-out infinite;
+}
 
+// Apparition du menu full screen au clic sur le burger - en lien avec fichier Js
+.navnewmenu {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden; // ainsi, les éléments ne dépassent pas du container.
+  display:none !important;// à l'ouverture du site, avant le click sur le burger, la navnewmenu est en display-none 
+}
 
+.open {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  animation: animate 1s; // apparition en fade
+}
+
+.remove {
+  display: none !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .fleurblanchemenu , .bluecat, .orchid , .randomflower , .flower , .blackcat , .hibiscusmenu ,.yellowcat{
+      display: none;
+  }
+}
