@@ -37,8 +37,14 @@
         top:-90px;
 
     }
- 
  }
+ @media all and (max-width: 700px) {
+  .section-oscars{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 
 //On enlève les fleurs du footer avec un display:none (fleurs qui sont rajoutées juste au dessus, dans la section des Oscars)
  .site-footer::before {
@@ -116,18 +122,34 @@ h2, h3 {
   // 2 - Image en fallback pendant chargement de la vidéo (img qui était déjà intégrée via un lien src dans le Css du thème parent) :
    .banner{
     z-index: 0;
-   height: 806px !important;
-   width: 1440px;
+    min-height: auto;
+    width: 100% !important;
   }
+
+
+@media all and (max-width: 700px) {
+  .banner  {
+    min-height: 600px !important;
+    height: 600px !important;
+  }
+}
+@media all and (max-width: 580px) {
+  .banner  {
+    min-height: 400px !important;
+    height: 400px !important;
+  }
+}
 
   
   // 3 - Vidéo  :
   #background_video{
     z-index: 1; 
     position:relative;
+    
     animation: animate 1s;
+    
   }
-  @media (max-width: 1024px) { // si écran inférieur ou égal à 1024px, la vidéo laisse place à l'img en fallback
+  @media (max-width: 700px) { // si écran inférieur ou égal à 700px, la vidéo laisse place à l'img en fallback
     #background_video { display: none; }
   }
 
@@ -136,10 +158,18 @@ h2, h3 {
   z-index: 2 ;
   position:absolute;
   display: flex !important;
-  justify-content: center;
+  justify-content: center !important;
   width:100%;
   animation: logo-progression 1s, flottement 6s 2s infinite ease-in-out;
 }
+
+@media (max-width: 700px) { 
+  #logo { 
+    width: auto;
+    position:inherit;
+  }
+}
+
 @keyframes logo-progression {
   from {
     padding-top: 1000px;
@@ -212,6 +242,10 @@ h2, h3 {
   width: 100%;
 }
  
+// 
+#studio{
+  overflow: hidden;
+}
 
 // Modification de l'image
 .story #place {
@@ -282,11 +316,15 @@ background-color: transparent; // la barre du milieu devient transparente ...
 } // Fin du menu burger et de son animation allant du burger à la croix.
 
 // Le Menu en full Screen :
+.site-title{
+  text-align: center !important;
+  
+}
 .menu {
   padding-top: 20px;
-  margin-left: 420px;
   display: flex;
   justify-content: space-around;
+ 
 }
 
 
@@ -315,8 +353,8 @@ background-color: transparent; // la barre du milieu devient transparente ...
   text-shadow: 0px 0px 14px #FF5C00;
 }
 
-.newul p {
-  text-align: center;
+.p-menu {
+  text-align: center !important;
   padding-top: 50px;
 }
 
@@ -439,7 +477,6 @@ background-color: transparent; // la barre du milieu devient transparente ...
 }
 
 @media screen and (max-width: 1000px) {
-  .fleurblanchemenu , .bluecat, .orchid , .randomflower , .flower , .blackcat , .hibiscusmenu ,.yellowcat{
-      display: none;
-  }
+  .fleurblanchemenu , .bluecat, .orchid , .randomflower , .flower , .blackcat , .hibiscusmenu ,.yellowcat
+  { display: none;}
 }

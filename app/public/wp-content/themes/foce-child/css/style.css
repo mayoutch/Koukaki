@@ -36,6 +36,12 @@
   top: -90px;
 }
 
+@media all and (max-width: 700px) {
+  .section-oscars {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .site-footer::before {
   content: url("./assets/images/Sunflower.png");
   position: absolute;
@@ -104,17 +110,29 @@ h2, h3 {
 
 .banner {
   z-index: 0;
-  height: 806px !important;
-  width: 1440px;
+  min-height: auto;
+  width: 100% !important;
 }
 
+@media all and (max-width: 700px) {
+  .banner {
+    min-height: 600px !important;
+    height: 600px !important;
+  }
+}
+@media all and (max-width: 580px) {
+  .banner {
+    min-height: 400px !important;
+    height: 400px !important;
+  }
+}
 #background_video {
   z-index: 1;
   position: relative;
   animation: animate 1s;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 700px) {
   #background_video {
     display: none;
   }
@@ -123,11 +141,17 @@ h2, h3 {
   z-index: 2;
   position: absolute;
   display: flex !important;
-  justify-content: center;
+  justify-content: center !important;
   width: 100%;
   animation: logo-progression 1s, flottement 6s 2s infinite ease-in-out;
 }
 
+@media (max-width: 700px) {
+  #logo {
+    width: auto;
+    position: inherit;
+  }
+}
 @keyframes logo-progression {
   from {
     padding-top: 1000px;
@@ -192,6 +216,10 @@ h2, h3 {
 #place {
   position: relative;
   width: 100%;
+}
+
+#studio {
+  overflow: hidden;
 }
 
 .story #place {
@@ -260,9 +288,12 @@ h2, h3 {
   transform: translateY(0px) rotateZ(45deg);
 }
 
+.site-title {
+  text-align: center !important;
+}
+
 .menu {
   padding-top: 20px;
-  margin-left: 420px;
   display: flex;
   justify-content: space-around;
 }
@@ -292,8 +323,8 @@ h2, h3 {
   text-shadow: 0px 0px 14px #FF5C00;
 }
 
-.newul p {
-  text-align: center;
+.p-menu {
+  text-align: center !important;
   padding-top: 50px;
 }
 

@@ -38,3 +38,8 @@ burger.addEventListener("click", () => {
   remove2.classList.toggle("remove"); // .. et le footer
   body.style.height = null; // Il y avait une hauteur du body qui ajoutait du blanc & du skroll à la place des éléments retirés. Permet de supprimer cette hauteur sur laquelle je n'avais pas la main.
 });
+
+const lien = document.getElementById("lien"); // ancres du menu
+lien.addEventListener("click", function () {
+  console.log("Clic détecté !");
+});
