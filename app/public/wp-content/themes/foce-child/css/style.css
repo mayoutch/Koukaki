@@ -146,12 +146,6 @@ h2, h3 {
   animation: logo-progression 1s, flottement 6s 2s infinite ease-in-out;
 }
 
-@media (max-width: 700px) {
-  #logo {
-    width: auto;
-    position: inherit;
-  }
-}
 @keyframes logo-progression {
   from {
     padding-top: 1000px;
@@ -179,6 +173,12 @@ h2, h3 {
     transform: translate(0px, -10px);
   }
 }
+@media (max-width: 700px) {
+  #logo {
+    width: auto;
+    position: inherit;
+  }
+}
 .story #characters {
   position: relative;
   display: flex;
@@ -199,12 +199,10 @@ h2, h3 {
   height: 300px;
   padding-bottom: 30px;
 }
-
 .swiper-slide img {
   display: block;
   width: 100%;
 }
-
 .swiper-slide p {
   font-size: 18px;
 }
@@ -227,19 +225,20 @@ h2, h3 {
   width: 100%;
 }
 
-.gros-nuage {
+.gros-nuage, .petit-nuage {
   position: absolute;
-  height: 122px;
-  top: 70px;
-  right: 90px;
   filter: blur(12px);
 }
 
+.gros-nuage {
+  height: 122px;
+  top: 70px;
+  right: 90px;
+}
+
 .petit-nuage {
-  position: absolute;
   height: 55px;
   top: 250px;
-  filter: blur(12px);
 }
 
 .burger {
@@ -248,7 +247,6 @@ h2, h3 {
   cursor: pointer;
   position: relative;
 }
-
 .burger span {
   width: 100%;
   height: 4px;
@@ -259,7 +257,6 @@ h2, h3 {
   transform: translateY(-50%);
   transition: backround-color 0.5s ease-in-out;
 }
-
 .burger span::before, .burger span::after {
   content: "";
   position: absolute;
@@ -267,11 +264,9 @@ h2, h3 {
   height: 4px;
   background-color: #000000;
 }
-
 .burger span::before {
   transform: translateY(-10px);
 }
-
 .burger span::after {
   transform: translateY(10px);
 }
@@ -279,11 +274,9 @@ h2, h3 {
 .burger.active span {
   background-color: transparent;
 }
-
 .burger.active span::after {
   transform: translateY(0px) rotateZ(-45deg);
 }
-
 .burger.active span::before {
   transform: translateY(0px) rotateZ(45deg);
 }
@@ -303,12 +296,10 @@ h2, h3 {
   padding: 0;
   padding-top: 30px;
 }
-
 .newul li {
   text-align: center;
 }
-
-.newul li a {
+.newul a {
   text-decoration: none;
   font-family: Roboto Mono;
   font-size: 48px;

@@ -47,26 +47,26 @@
 
 
 //On enlève les fleurs du footer avec un display:none (fleurs qui sont rajoutées juste au dessus, dans la section des Oscars)
- .site-footer::before {
-	content: url("./assets/images/Sunflower.png");
-	position: absolute;
-    display: none;
-	left: 4em;
-	top: 0em;
+.site-footer::before {
+  content: url("./assets/images/Sunflower.png");
+  position: absolute;
+  display: none;
+  left: 4em;
+  top: 0em;
 }
-
 .site-footer::after {
-	content: url("./assets/images/orchid.png");
-	position: absolute;
-    display:none;
-	right: -4em;
-	bottom: 7.8em;
+  content: url("./assets/images/orchid.png");
+  position: absolute;
+  display: none;
+  right: -4em;
+  bottom: 7.8em;
 }
 
 // ----------------                  Rotation des Fleurs à l'infini en CSS avec des @KeyFrames            -----------------------
 .story h2::after, .story__article::after, #studio h2::after, #studio h2::before, .section-oscars::after, .section-oscars::before, .site-footer ul::after{
     animation: flowerRotation 12s linear infinite;
     }
+
     @keyframes flowerRotation {
     from {
     transform: rotate(0deg);
@@ -76,7 +76,7 @@
     }
     }
 
-// Effet de Fade-In au scroll * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline/view
+// Effet de Fade-In au scroll 
 #background{ // pour la première section : j'ai ajouté un Id="background" pour dissocier les animations et que ça ne s'applique pas au logo
     animation: animate 1s;
 }
@@ -91,7 +91,7 @@
     }
     }
 
-    //avec apparition progressive au scroll pour les 5 autres sections 
+    //avec apparition progressive au scroll pour les 5 autres sections * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline/view
     .section-oscars, #studio, #place, #characters, #story{
       animation: animate 1s;
       animation-timeline: view();
@@ -100,7 +100,7 @@
 // Effet d'apparition des titres au scroll :
 h2, h3 {
     animation: title-progression 1s;
-    animation-timeline: view(); //apparition viewport
+    animation-timeline: view(); //apparition viewport *https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline/view
   }
   
   @keyframes title-progression {
@@ -115,7 +115,7 @@ h2, h3 {
   }
 
   // --------------------------------------------------        Héro        ---------------------------------------------------- //
-  #background{ // 1 - le contener principal
+  #background{ // 1 - le container principal
     height: 806px;
   } 
   
@@ -126,14 +126,13 @@ h2, h3 {
     width: 100% !important;
   }
 
-
-@media all and (max-width: 700px) {
+  @media all and (max-width: 700px) {
   .banner  {
     min-height: 600px !important;
     height: 600px !important;
   }
-}
-@media all and (max-width: 580px) {
+  }
+  @media all and (max-width: 580px) {
   .banner  {
     min-height: 400px !important;
     height: 400px !important;
@@ -145,13 +144,12 @@ h2, h3 {
   #background_video{
     z-index: 1; 
     position:relative;
-    
-    animation: animate 1s;
-    
-  }
-  @media (max-width: 700px) { // si écran inférieur ou égal à 700px, la vidéo laisse place à l'img en fallback
+    animation: animate 1s; 
+    }
+
+    @media (max-width: 700px) { // si écran inférieur ou égal à 700px, la vidéo laisse place à l'img en fallback
     #background_video { display: none; }
-  }
+    }
 
   //logo (l'img était déjà insérée dans le Front-page.php / ajout d'un id pour flottement & parallaxe) :
   #logo{
@@ -160,15 +158,9 @@ h2, h3 {
   display: flex !important;
   justify-content: center !important;
   width:100%;
-  animation: logo-progression 1s, flottement 6s 2s infinite ease-in-out;
-}
-
-@media (max-width: 700px) { 
-  #logo { 
-    width: auto;
-    position:inherit;
+  animation: logo-progression 1s, flottement 6s 2s infinite ease-in-out; 
+  //ease-in-out correspond à cubic-bezier(0.42, 0, 0.58, 1.0) : la transition commence lentement, accèlere puis ralentit à nouveau avant la fin.
   }
-}
 
 @keyframes logo-progression {
   from {
@@ -198,6 +190,13 @@ h2, h3 {
     }
 }
 
+@media (max-width: 700px) { 
+  #logo { 
+    width: auto;
+    position:inherit;
+  }
+  }
+
 // -------------------               Section "Personnages"             ----------------------------//
 
 .story #characters{
@@ -221,15 +220,16 @@ h2, h3 {
   width: 300px;
   height: 300px;
   padding-bottom: 30px;
-}
 
-.swiper-slide img {
+  img {
   display: block;
   width: 100%;
 }
-.swiper-slide p{
+  p{
   font-size: 18px;
+  } 
 } 
+
 .swiper-pagination {
   padding: 20px;
 }
@@ -253,31 +253,30 @@ h2, h3 {
   width:100%;
 }
 
-
-  .gros-nuage{ 
-    position: absolute;
-    height: 122px;
-    top: 70px;
-    right: 90px;
-    filter: blur(12px); // ajout du flou
+.gros-nuage , .petit-nuage{
+  position: absolute;
+  filter: blur(12px); // ajout du flou
+}
+.gros-nuage{ 
+  height: 122px;
+  top: 70px;
+  right: 90px;
   }
-  .petit-nuage{
-   position: absolute;
-    height: 55px;
-    top: 250px;
-    filter: blur(12px);
-    }
+.petit-nuage{
+  height: 55px;
+  top: 250px;
+  }
   
 // -------------------------------- MENU --------------------------------------------------//
-//Création du menu Burger : https://www.youtube.com/watch?v=ZGyLWixjE90
+// -----  --Création du menu Burger : https://www.youtube.com/watch?v=ZGyLWixjE90 --------//
 .burger{
   width: 42px;
   height: 24px;
   cursor: pointer;
   position: relative;
-  }
+  
 
-  .burger span{ // barre du milieu
+  span{ // barre du milieu
     width: 100%;
     height: 4px;
     background-color: #000000;
@@ -286,36 +285,37 @@ h2, h3 {
     top:50%;
     transform: translateY(-50%);
     transition: backround-color 0.5s ease-in-out;
-}
+    }
 
-.burger span::before, .burger span::after { // barre du haut et barre du bas
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background-color: #000000
-}
-.burger span::before{
-  transform: translateY(-10px);
-}
-.burger span::after{
-transform: translateY(10px);
+    span::before, span::after { // barre du haut et barre du bas
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #000000
+    }
+    span::before{
+    transform: translateY(-10px);
+    }
+    span::after{
+    transform: translateY(10px);
+  }
 } // fin de la créa des 3 barres - apparaît désormais comme un burger
 
 //début de l'animation du burger
 .burger.active span{ // quand la class burger comprend aussi la class active ...
 background-color: transparent; // la barre du milieu devient transparente ...
-}
+
 
 // puis le before et l'after font une rotation pour dessiner une croix :
-.burger.active span::after{
+  &::after{
   transform: translateY(0px) rotateZ(-45deg);
 }
-.burger.active span::before{
+  &::before{
   transform: translateY(0px) rotateZ(45deg);
-} // Fin du menu burger et de son animation allant du burger à la croix.
-
-// Le Menu en full Screen :
+  } // Fin du menu burger et de son animation allant du burger à la croix.
+}
+// -----------------  Le Menu en full Screen ----------------//
 .site-title{
   text-align: center !important;
   
@@ -327,29 +327,28 @@ background-color: transparent; // la barre du milieu devient transparente ...
  
 }
 
-
 .newul {
   list-style: none; // pour enlever les puces
   padding: 0;
   padding-top: 30px;
-}
 
-.newul li {
-  text-align: center;
-}
+    li {
+    text-align: center;
+    }
 
-.newul li a {
-  text-decoration: none;
-  font-family: Roboto Mono;
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 84px;
-  letter-spacing: 0em;
-  text-align: center;
-  color: black;
-}
+    & a {
+    text-decoration: none;
+    font-family: Roboto Mono;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 84px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: black;
+    }
+  }
 
-.newul li a:hover { 
+  .newul li a:hover { 
   text-shadow: 0px 0px 14px #FF5C00;
 }
 
@@ -359,6 +358,7 @@ background-color: transparent; // la barre du milieu devient transparente ...
 }
 
 //Images du menu full screen
+
 .fleurblanchemenu {
   content: url('./assets/images/menu/Sunflower.png');
   position: absolute;
@@ -367,7 +367,6 @@ background-color: transparent; // la barre du milieu devient transparente ...
   left: 829px;
   top: 87px;
   margin-left: 234px;
-  
 }
 
 .bluecat {
@@ -387,7 +386,6 @@ background-color: transparent; // la barre du milieu devient transparente ...
   height: 168.24px;
   left: -72px;
   top: 50px;
-  
 }
 
 .randomflower {
@@ -397,7 +395,6 @@ background-color: transparent; // la barre du milieu devient transparente ...
   height: 74.53px;
   left: 1393px;
   top: 352px;
-  
 }
 
 .flower {
@@ -408,7 +405,6 @@ background-color: transparent; // la barre du milieu devient transparente ...
   height: 70.76px;
   left: 180px;
   top: 300px;
-  
 }
 
 .blackcat {
@@ -442,7 +438,6 @@ background-color: transparent; // la barre du milieu devient transparente ...
   content: url('./assets/images/menu/logomenu.png');
   margin-left: 100px;
   padding-top: 20px;
-  
 }
 
 .orchid , .fleurblanchemenu , .hibiscusmenu , .flower , .randomflower {
