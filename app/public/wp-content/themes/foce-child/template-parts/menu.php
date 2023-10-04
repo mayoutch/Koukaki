@@ -12,10 +12,10 @@
         <div class="hibiscusmenu"></div>
 
         <ul class="newul">
-            <li><a href="http://koukaki.local/#story" id="lien" class="">Histoire</a></li>
-            <li><a href="http://koukaki.local/#characters" class="">Personnages</a></li>
-            <li><a href="http://koukaki.local/#place" class="">Lieu</a></li>
-            <li><a href="http://koukaki.local/#studio" class="">Studio Koukaki</a></li>
+            <li><a href="##story" id="lien" class="">Histoire</a></li>
+            <li><a href="#characters" id="lien2"class="">Personnages</a></li>
+            <li><a href="#place" id="lien3"class="">Lieu</a></li>
+            <li><a href="#studio" id="lien4" class="">Studio Koukaki</a></li>
 </ul>
         <p class="p-menu">Studio Koukaki</p>
     </div>

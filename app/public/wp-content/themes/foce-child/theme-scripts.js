@@ -38,8 +38,32 @@ burger.addEventListener("click", () => {
   remove2.classList.toggle("remove"); // .. et le footer
   body.style.height = null; // Il y avait une hauteur du body qui ajoutait du blanc & du skroll à la place des éléments retirés. Permet de supprimer cette hauteur sur laquelle je n'avais pas la main.
 });
-
 const lien = document.getElementById("lien"); // ancres du menu
 lien.addEventListener("click", function () {
-  console.log("Clic détecté !");
+  nav.classList.toggle("open");
+  remove.classList.toggle("remove");
+  remove2.classList.toggle("remove");
+  location.href.hash = "#story";
+});
+
+const lien2 = document.getElementById("lien2");
+lien2.addEventListener("click", function () {
+  remove.classList.toggle("remove");
+  remove2.classList.toggle("remove");
+  nav.classList.toggle("open");
+  location.href.hash = "#characters";
+});
+const lien3 = document.getElementById("lien3");
+lien3.addEventListener("click", function () {
+  remove.classList.toggle("remove");
+  remove2.classList.toggle("remove");
+  nav.classList.toggle("open");
+  location.href.hash = "#place";
+});
+const lien4 = document.getElementById("lien4");
+lien4.addEventListener("click", function () {
+  remove.classList.toggle("remove");
+  remove2.classList.toggle("remove");
+  nav.classList.toggle("open");
+  location.href.hash = "#studio";
 });
